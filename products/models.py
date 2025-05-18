@@ -18,7 +18,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
-    # def soft_delete(self):
-    #     """Performs a soft delete operation"""
-    #     self.is_deleted = True
-    #     self.save()
+    def soft_delete(self):
+        """Performs a soft delete operation"""
+        self.is_deleted = True
+        self.save()
