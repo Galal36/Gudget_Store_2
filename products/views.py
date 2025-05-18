@@ -50,8 +50,8 @@ class ProductDeleteView(DeleteView):
         self.object.soft_delete()
         return redirect(self.success_url)
 
-# def hard_delete_product(request, pk):
-#     """Permanently delete a product from the database"""
-#     product = get_object_or_404(Product, pk=pk)
-#     product.delete()
-#     return redirect('product_list')
+def hard_delete_product(request, pk):
+    """Permanently delete a product from the database"""
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    return redirect('product_list')
