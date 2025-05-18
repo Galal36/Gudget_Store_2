@@ -16,17 +16,17 @@ def add_product(request):
         form = ProductForm()
     return render(request, 'products/add_product.html', {'form': form})
 
-# def update_product(request, pk):
-#     """Update a product using form"""
-#     product = get_object_or_404(Product, pk=pk)
-#     if request.method == 'POST':
-#         form = ProductForm(request.POST, request.FILES, instance=product)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('product_list')
-#     else:
-#         form = ProductForm(instance=product)
-#     return render(request, 'products/update_product.html', {'form': form})
+def update_product(request, pk):
+    """Update a product using form"""
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('product_list')
+    else:
+        form = ProductForm(instance=product)
+    return render(request, 'products/update_product.html', {'form': form})
 
 # Class-based views
 class ProductListView(ListView):
